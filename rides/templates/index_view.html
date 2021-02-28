@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<img src="{% static 'CPCPlogo.png' %}" alt="Image of logo">
+<div class="main"> 
+  <table>
+      {% for person in people %}
+      <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{ person.first_name }}</td> 
+          <td>{{ person.origination }}</td>
+          <td>{{ person.destination_city }}</td> 
+          <td>{{ person.destination_state }}</td> 
+          <td>{{ person.date }}</td> 
+          <td>{{ person.time }}</td> 
+          <td>{{ person.taking_passengers }}</td>
+          <td>{{ person.seats_available }}</td> 
+      </tr>
+      {% endfor %} 
+  </table>
+</div> 
+
+<form id = "search-form" action="{% url 'rides:index' %}" method="get">
+    {{ form }}
+    <input type="submit" value="Submit" onclick="return checkForm(this.parentNode);">
+
+</form>
+
+
+{% endblock %}

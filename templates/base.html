@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+
+<head>
+  <script src="{% static 'main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'main.css' %}"/>
+</head>
+
+<title> CPCP Inc. </title>
+
+  <body bgcolor="Brown" text="White" onload="splash();">
+    <div class="topnav">
+  <a class="active" href="/rides/">Home</a>
+  <a href="/rides/addride">Add a Ride</a>
+  <a href="/">Splash Page</a>
+</div>
+    <center>
+      <h1><span class="brown">CoolPool CarPool</span></h1>
+      <h2><span class="brown2">The Coolest Carpool Experience in Town</span></h2>
+      
+
+      
+
+      {% block content %}
+
+      {% endblock %}
+
+
+    </center>
+    
+  </body>
+  <section>
+      <h2><span class="customerreviews">Customer Reviews</span></h2>
+      <p><span class="customerreviews">Carl Roger (5/5) : Cool Pool CarPool gave me a safe, free, and enjoyable way to get to the place I needed<br /> to get to with people with interests that perfectly matched mine . Definitely use it!<br /><br />
+      Jelmer Bennema (5/5) Best app I've ever used! <br /><br />
+      Charles Coppieters (5/5) Logo reminds me of the CCCP, my favorite! 
+      </span></p>
+    </section>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+
+<html>
+<head>
+  <script src="{% static 'main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'main.css' %}"/>
+</head>
+
+<title> CPCP Inc. </title>
+  <body bgcolor="Brown" text="White" onload="splash();">
+    <center>
+      <h1><span class="brown">CoolPool CarPool</span></h1>
+      <h2><span class="brown2">The Coolest Carpool Experience in Town</span></h2>
+
+      
+
+      {% block content %}
+		<h1><span class="brown">Welcome!</span></h1>
+		<a href="{% url 'rides:index' %}"><span class="brownlinks">Click Here to Find Your First CoolPool</span></a>
+	  {% endblock %}
+
+
+    </center>
+  </body>
+</html>
+
