@@ -1,0 +1,71 @@
+{% load static %}
+
+<html>
+
+<head>
+  <script src="{% static 'main.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'create.css' %}"/>
+</head>
+
+<title> CPCP Inc. </title>
+  <body bgcolor="Brown" text="White" onload="splash();">
+    <div class="topnav">
+  <a href="/rides/">Home</a>
+  <a href="/rides/addride">Add a Ride</a>
+  <a class="active" href="/about">About</a>
+  <a href="/">Splash Page</a>
+</div>
+    <center>
+      <h1><span class="brown">About</span></h1>
+      <h2><span class="brown2">Welcome to CoolPool CarPool</span></h2>
+
+      <p><span class="brownforms">CoolPool CarPool is about bringing people together on their long commutes to work, activities, parties, or events. We make it easy to find people going the same direction as you so that you can save money on travel, meet new people along the way, and most importantly, have fun while doing so! 
+        <br /><br />
+      Below, you can find our team who have been working tirelessly to revolutionize the way we travel:</span></p>
+    </center>
+<section>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'jelmerbe.jpeg' %}" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2 class="title3">Jelmer Bennema</h2>
+        <p class="title">CEO &amp; Co-Founder</p>
+        <p class="title2">Hailing from the small Dutch town of Utrecht, Mr. Bennema is in charge of our international R&D and outreach programs</p>
+        <p class="title2">jbennema@hotmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'kornhauser.jpeg' %}" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2 class="title3">Prof. Kornhauser</h2>
+        <p class="title">Inspirational Mentor</p>
+        <p class="title2">Prof. Kornhauser is responsible for the idea and keeping Jelmer and Charles in check</p>
+        <p class="title2">alaink@princeton.edu</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'charlescopp.jpeg' %}" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2 class="title3">Charles Coppieters</h2>
+        <p class="title">COO & Co-Founder</p>
+        <p class="title2">A Chicago-native, Mr. Coppieters 't wallant is the head of the American operations</p>
+        <p class="title2">charlescoppieters@hotmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+</section>
+  </body>
+</html>

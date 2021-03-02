@@ -13,6 +13,7 @@
     <div class="topnav">
   <a class="active" href="/rides/">Home</a>
   <a href="/rides/addride">Add a Ride</a>
+  <a href="/about">About</a>
   <a href="/">Splash Page</a>
 </div>
     <center>
@@ -26,15 +27,42 @@
 
       {% endblock %}
 
-
+      <h2><span class="customerreviews">Customer Experiences:</span></h2>
     </center>
     
   </body>
-  <section>
-      <h2><span class="customerreviews">Customer Reviews</span></h2>
-      <p><span class="customerreviews">Carl Roger (5/5) : Cool Pool CarPool gave me a safe, free, and enjoyable way to get to the place I needed<br /> to get to with people with interests that perfectly matched mine . Definitely use it!<br /><br />
-      Jelmer Bennema (5/5) Best app I've ever used! <br /><br />
-      Charles Coppieters (5/5) Logo reminds me of the CCCP, my favorite! 
-      </span></p>
-    </section>
+  <div class="row">
+  <div class="column">
+    <div class="container">
+  <img src="{% static 'car1.jpg' %}" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">CoolPool CarPool saved me over $300 on gas this month and I also met some really great friends while carpooling every day! 
+    <br /><br />
+  -Gregoire L.</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container">
+  <img src="{% static 'car2.png' %}" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">I tried CoolPool CarPool for the first time to go to my indoor rowing competition in Boston, MA and I got there with ease. They matched me with others going to the same event which was great!
+    <br /><br />
+  -Floyd B.</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container">
+  <img src="{% static 'car3.jpg' %}" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">I use CoolPool CarPool every day to get to work and I've gotten to meet so many cool people. Would reccomend!
+
+    <br /><br />
+  -Joe G.
+</div>
+  </div>
+</div>
+  </div>
+</div>
 </html>
