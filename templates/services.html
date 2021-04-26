@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Services - PSETBuddy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/img/favicon.png" rel="icon">
+  <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>PSETBuddy</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="/static/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active " href="services.html">Find a Buddy</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Our Services Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Our Services</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Our Services</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Our Services Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section class="services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="icon-box icon-box-pink">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">Sign Up</a></h4>
+              <p class="description">Provide us with your Contact Information</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box icon-box-cyan">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">Pick Courses</a></h4>
+              <p class="description">Select all courses that you need pset buddies for, we take it from here!</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box icon-box-green">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">Receive an email</a></h4>
+              <p class="description">We reach out to you and your new buddies</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="">Start Working!</a></h4>
+              <p class="description"> You are now set up with everything to start working with your new pset buddies!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <div class="container">
+
+
+
+
+            <form action="{% url 'buddies:create' %}" method="POST" role="form" class="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Your Last Name" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input type="email" class="form-control" name="contact_email" id="contact_email" placeholder="Your Email" required>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <div class="input-group">
+                        <select class="form-control selectpicker " name="Course1" id="Course1" rows="5" placeholder="Courses" required>
+                            <option value=""> Select Your Course</option>
+                            <option> ORF245 </option>
+                            <option> ORF307 </option>
+                            <option> ORF309 </option>
+                            <option> ORF311 </option>
+                            <option> ORF335 </option>
+                            <option> ORF350 </option>
+                            <option> ORF360 </option>
+                            <option> ORF363 </option>
+                            <option> ORF387 </option>
+                            <option> ORF401 </option>
+                            <option> ORF405 </option>
+                            <option> ORF407 </option>
+                            <option> ORF409 </option>
+                            <option> ORF411 </option>
+                            <option> ORF418 </option>
+                            <option> ORF435 </option>
+                            <option> ORF445 </option>
+                            <option> ORF455 </option>
+                            <option> ORF467 </option>
+                            <option> ORF473 </option>
+                            <option> ORF474 </option>
+                            <option> ORF478 </option>
+                            <option> ORF479 </option>
+                            <option> ORF504 </option>
+                            <option> ORF505 </option>
+                            <option> ORF509 </option>
+                            <option> ORF510 </option>
+                            <option> ORF515 </option>
+                            <option> ORF522 </option>
+                            <option> ORF523 </option>
+                            <option> ORF524 </option>
+                            <option> ORF525 </option>
+                            <option> ORF526 </option>
+                            <option> ORF527 </option>
+                            <option> ORF531 </option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your information has been received </div> -->
+                <!--<div class="slidecontainer">
+                     <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
+                     <p>Value: <span id="demo"></span></p>
+                </div>
+
+                <script>
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("demo");
+                    output.innerHTML = slider.value;
+
+                    slider.oninput = function () {
+                      output.innerHTML = this.value;
+                     }
+                </script>
+              -->
+        <div class="text-center"><button onclick="confirmFunction()" type="submit">Submit</button></div>
+        </form>
+
+        
+
+      </div>
+
+
+
+
+        </div>
+    </section>
+
+    <p id="demo"></p>
+
+    <script>
+      function confirmFunction() {
+        alert("Your information has been received! \n\nYou will receive an email when your group is finalized with the contact information of every group memeber.\n\nThank you for using PSETBuddy!");
+      }
+</script>
+    
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>ORF401</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+       <a>ORF401 Spring 2021</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/vendor/aos/aos.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/vendor/php-email-form/validate.js"></script>
+  <script src="/static/vendor/purecounter/purecounter.js"></script>
+  <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>
