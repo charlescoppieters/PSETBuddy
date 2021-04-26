@@ -22,6 +22,7 @@ urlpatterns = [
     path('about.html', TemplateView.as_view(template_name="about.html")),
     path('services.html', TemplateView.as_view(template_name="services.html")),
     path('index.html', TemplateView.as_view(template_name="index.html")),
+    path('', TemplateView.as_view(template_name="index.html")),
     path('buddies/', include('buddies.urls')),
     
 ]
