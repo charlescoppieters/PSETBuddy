@@ -10,4 +10,6 @@ class Person(models.Model):
   Major = models.CharField(max_length=64)
   CourseNumber = models.IntegerField(null = True)
   has_group1 = models.BooleanField(default = False)
-  
+  time_management = models.CharField(max_length = 64, null = True) 
+  time_zone = models.CharField(max_length = 64, null = True) 
+  in_person = models.BooleanField(default = False)

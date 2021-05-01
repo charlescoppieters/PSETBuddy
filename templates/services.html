@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/static/img/favicon.png" rel="icon">
-  <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/static/img/psetbuddyicon.png" rel="icon">
+  <link href="/static/img/psetbuddyicon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
@@ -87,8 +87,8 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box icon-box-cyan">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Pick Courses</a></h4>
-              <p class="description">Select all courses that you need pset buddies for, we take it from here!</p>
+              <h4 class="title"><a href="">Pick Your Course</a></h4>
+              <p class="description">Select the course that you need buddies for, we take it from here!</p>
             </div>
           </div>
 
@@ -96,7 +96,7 @@
             <div class="icon-box icon-box-green">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4 class="title"><a href="">Receive an email</a></h4>
-              <p class="description">We reach out to you and your new buddies</p>
+              <p class="description">We reach out to you and your new buddies and provide you their information</p>
             </div>
           </div>
 
@@ -119,11 +119,11 @@
 
 
 
-            <form action="{% url 'buddies:create' %}" method="POST" role="form" class="">
+            <form action="{% url 'buddies:create' %}" method="POST" role="form" class="" onsubmit="confirmFunction()">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-4 form-group">
-                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your Name" required>
+                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your First Name" required>
                     </div>
                     <div class="col-md-4 form-group">
                         <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Your Last Name" required>
@@ -134,73 +134,359 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 form-group">
-                        <select class=" form-control selectpicker " name="Major" id="Major" rows="5" placeholder="Major" required style="margin-top: 5%">
-                            <option value="">Course Department</option>
-                            <option> ORF </option>
-                            <option> COS</option>
-                            <option> PSY </option>
-                            <option> MAT </option>
-                            <option> HIS </option>
-                            <option> MAE </option>
-                            <option> CEE </option>
-                            <option> ELE </option>
-                            <option> NEU </option>
-                            <option> ART </option>
+                    <div class="col-md-4 form-group">
+                        <select class=" form-control selectpicker " name="Major" id="Major" rows="5" placeholder="Course Department" required style="margin-top: 5%">
+                            <option selected disabled>Course Department</option>
+                            <option value="AAS">
+                                AAS - African American Studies
+                            </option>
+                            <option value="AFS">
+                                AFS - African Studies
+                            </option>
+                            <option value="AMS">
+                                AMS - American Studies
+                            </option>
+                            <option value="ANT">
+                                ANT - Anthropology
+                            </option>
+                            <option value="AOS">
+                                AOS - Atmospheric &amp; Oceanic Sciences
+                            </option>
+                            <option value="APC">
+                                APC - Appl and Computational Math
+                            </option>
+                            <option value="ARA">
+                                ARA - Arabic
+                            </option>
+                            <option value="ARC">
+                                ARC - Architecture
+                            </option>
+                            <option value="ART">
+                                ART - Art and Archaeology
+                            </option>
+                            <option value="ASA">
+                                ASA - Asian American Studies
+                            </option>
+                            <option value="AST">
+                                AST - Astrophysical Sciences
+                            </option>
+                            <option value="ATL">
+                                ATL - Atelier
+                            </option>
+                            <option value="CBE">
+                                CBE - Chemical and Biological Engr
+                            </option>
+                            <option value="CEE">
+                                CEE - Civil and Environmental Engr
+                            </option>
+                            <option value="CGS">
+                                CGS - Cognitive Science
+                            </option>
+                            <option value="CHI">
+                                CHI - Chinese
+                            </option>
+                            <option value="CHM">
+                                CHM - Chemistry
+                            </option>
+                            <option value="CHV">
+                                CHV - Center for Human Values
+                            </option>
+                            <option value="CLA">
+                                CLA - Classics
+                            </option>
+                            <option value="CLG">
+                                CLG - Classical Greek
+                            </option>
+                            <option value="COM">
+                                COM - Comparative Literature
+                            </option>
+                            <option value="COS">
+                                COS - Computer Science
+                            </option>
+                            <option value="CTL">
+                                CTL - Center for Teaching &amp; Learning
+                            </option>
+                            <option value="CWR">
+                                CWR - Creative Writing
+                            </option>
+                            <option value="DAN">
+                                DAN - Dance
+                            </option>
+                            <option value="EAS">
+                                EAS - East Asian Studies
+                            </option>
+                            <option value="ECE">
+                                ECE - Electrical &amp; Computer Eng
+                            </option>
+                            <option value="ECO">
+                                ECO - Economics
+                            </option>
+                            <option value="ECS">
+                                ECS - European Cultural Studies
+                            </option>
+                            <option value="EEB">
+                                EEB - Ecology and Evol Biology
+                            </option>
+                            <option value="EGR">
+                                EGR - Engineering
+                            </option>
+                            <option value="ENE">
+                                ENE - Energy Studies
+                            </option>
+                            <option value="ENG">
+                                ENG - English
+                            </option>
+                            <option value="ENT">
+                                ENT - Entrepreneurship
+                            </option>
+                            <option value="ENV">
+                                ENV - Environmental Studies
+                            </option>
+                            <option value="EPS">
+                                EPS - Contemporary European Politics
+                            </option>
+                            <option value="FIN">
+                                FIN - Finance
+                            </option>
+                            <option value="FRE">
+                                FRE - French
+                            </option>
+                            <option value="FRS">
+                                FRS - Freshman Seminars
+                            </option>
+                            <option value="GEO">
+                                GEO - Geosciences
+                            </option>
+                            <option value="GER">
+                                GER - German
+                            </option>
+                            <option value="GHP">
+                                GHP - Global Health &amp; Health Policy
+                            </option>
+                            <option value="GSS">
+                                GSS - Gender and Sexuality Studies
+                            </option>
+                            <option value="HEB">
+                                HEB - Hebrew
+                            </option>
+                            <option value="HIN">
+                                HIN - Hindi
+                            </option>
+                            <option value="HIS">
+                                HIS - History
+                            </option>
+                            <option value="HLS">
+                                HLS - Hellenic Studies
+                            </option>
+                            <option value="HOS">
+                                HOS - History of Science
+                            </option>
+                            <option value="HUM">
+                                HUM - Humanistic Studies
+                            </option>
+                            <option value="ISC">
+                                ISC - Integrated Science Curriculum
+                            </option>
+                            <option value="ITA">
+                                ITA - Italian
+                            </option>
+                            <option value="JDS">
+                                JDS - Judaic Studies
+                            </option>
+                            <option value="JPN">
+                                JPN - Japanese
+                            </option>
+                            <option value="JRN">
+                                JRN - Journalism
+                            </option>
+                            <option value="KOR">
+                                KOR - Korean
+                            </option>
+                            <option value="LAO">
+                                LAO - Latino Studies
+                            </option>
+                            <option value="LAS">
+                                LAS - Latin American Studies
+                            </option>
+                            <option value="LAT">
+                                LAT - Latin
+                            </option>
+                            <option value="LCA">
+                                LCA - Lewis Center for the Arts
+                            </option>
+                            <option value="LIN">
+                                LIN - Linguistics
+                            </option>
+                            <option value="MAE">
+                                MAE - Mech and Aerospace Engr
+                            </option>
+                            <option value="MAT">
+                                MAT - Mathematics
+                            </option>
+                            <option value="MED">
+                                MED - Medieval Studies
+                            </option>
+                            <option value="MOD">
+                                MOD - Media and Modernity
+                            </option>
+                            <option value="MOG">
+                                MOG - Modern Greek
+                            </option>
+                            <option value="MOL">
+                                MOL - Molecular Biology
+                            </option>
+                            <option value="MPP">
+                                MPP - Music Performance
+                            </option>
+                            <option value="MSE">
+                                MSE - Materials Science and Engr
+                            </option>
+                            <option value="MTD">
+                                MTD - Music Theater
+                            </option>
+                            <option value="MUS">
+                                MUS - Music
+                            </option>
+                            <option value="NES">
+                                NES - Near Eastern Studies
+                            </option>
+                            <option value="NEU">
+                                NEU - Neuroscience
+                            </option>
+                            <option value="ORF">
+                                ORF - Oper Res and Financial Engr
+                            </option>
+                            <option value="PAW">
+                                PAW - Ancient World
+                            </option>
+                            <option value="PER">
+                                PER - Persian
+                            </option>
+                            <option value="PHI">
+                                PHI - Philosophy
+                            </option>
+                            <option value="PHY">
+                                PHY - Physics
+                            </option>
+                            <option value="PLS">
+                                PLS - Polish
+                            </option>
+                            <option value="POL">
+                                POL - Politics
+                            </option>
+                            <option value="POR">
+                                POR - Portuguese
+                            </option>
+                            <option value="PSY">
+                                PSY - Psychology
+                            </option>
+                            <option value="QCB">
+                                QCB - Quantitative Computational Bio
+                            </option>
+                            <option value="REL">
+                                REL - Religion
+                            </option>
+                            <option value="RES">
+                                RES - Russian, East Europ, Eurasian
+                            </option>
+                            <option value="RUS">
+                                RUS - Russian
+                            </option>
+                            <option value="SAN">
+                                SAN - Sanskrit
+                            </option>
+                            <option value="SAS">
+                                SAS - South Asian Studies
+                            </option>
+                            <option value="SLA">
+                                SLA - Slavic Languages and Lit
+                            </option>
+                            <option value="SML">
+                                SML - Statistics &amp; Machine Learning
+                            </option>
+                            <option value="SOC">
+                                SOC - Sociology
+                            </option>
+                            <option value="SPA">
+                                SPA - Spanish
+                            </option>
+                            <option value="SPI">
+                                SPI - Public &amp; International Affairs
+                            </option>
+                            <option value="STC">
+                                STC - Science and Technology Council
+                            </option>
+                            <option value="SWA">
+                                SWA - Swahili
+                            </option>
+                            <option value="THR">
+                                THR - Theater
+                            </option>
+                            <option value="TPP">
+                                TPP - Teacher Preparation
+                            </option>
+                            <option value="TRA">
+                                TRA - Translation, Intercultural Com
+                            </option>
+                            <option value="TUR">
+                                TUR - Turkish
+                            </option>
+                            <option value="TWI">
+                                TWI - Twi
+                            </option>
+                            <option value="URB">
+                                URB - Urban Studies
+                            </option>
+                            <option value="URD">
+                                URD - Urdu
+                            </option>
+                            <option value="VIS">
+                                VIS - Visual Arts
+                            </option>
                         </select>
                     </div>
 
-                    <div class="col-md-6 form-group">
-                        <input type="number" name="CourseNumber" class="form-control" id="Course_Number" placeholder="Course Code" required style="margin-top: 5%">
+                    <div class="col-md-4 form-group">
+                        <input type="number" name="CourseNumber" class="form-control" id="Course_Number" placeholder="Course Code (eg. 126 for COS126)" required style="margin-top: 5%">
                     </div>
                 </div>
-
-                <!-- 
-                <div class="form-group mt-3">
-                    <div class="input-group">
-                        <select class="form-control selectpicker " name="Course1" id="Course1" rows="5" placeholder="Courses" required>
-                            <option value=""> Select Your Course</option>
-                            <option> ORF245 </option>
-                            <option> ORF307 </option>
-                            <option> ORF309 </option>
-                            <option> ORF311 </option>
-                            <option> ORF335 </option>
-                            <option> ORF350 </option>
-                            <option> ORF360 </option>
-                            <option> ORF363 </option>
-                            <option> ORF387 </option>
-                            <option> ORF401 </option>
-                            <option> ORF405 </option>
-                            <option> ORF407 </option>
-                            <option> ORF409 </option>
-                            <option> ORF411 </option>
-                            <option> ORF418 </option>
-                            <option> ORF435 </option>
-                            <option> ORF445 </option>
-                            <option> ORF455 </option>
-                            <option> ORF467 </option>
-                            <option> ORF473 </option>
-                            <option> ORF474 </option>
-                            <option> ORF478 </option>
-                            <option> ORF479 </option>
-                            <option> ORF504 </option>
-                            <option> ORF505 </option>
-                            <option> ORF509 </option>
-                            <option> ORF510 </option>
-                            <option> ORF515 </option>
-                            <option> ORF522 </option>
-                            <option> ORF523 </option>
-                            <option> ORF524 </option>
-                            <option> ORF525 </option>
-                            <option> ORF526 </option>
-                            <option> ORF527 </option>
-                            <option> ORF531 </option>
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <select class=" form-control selectpicker " name="deadline" id="deadline" rows="5" placeholder="How many days before the deadline do you like to finish your assingment?" required style="margin-top: 5%">
+                            <option selected disabled>How do you manage your time?</option>
+                            <option value="0">Start 1+ week(s) before the due date</option>
+                            <option value="1">Start 3-5 days before the due date</option>
+                            <option value="2">Start 2-3 days before the due date</option>
+                            <option value="3">Start 0-1 days before the due date</option>
+    
                         </select>
-
                     </div>
+    
+                    <div class="col-md-4 form-group">
+                      <select class="form-control selectpicker " name="timezone" id="timezone" rows="5" placeholder="What is your time zone" required style="margin-top: 5%">
+                          <option selected disabled>Time Zone (based off of Princeton's EST)</option>
+                          <option value="0">EST +9 to EST +12</option>
+                          <option value="1">EST +5 to EST +8</option>
+                          <option value="2">EST +2 to EST +4</option>
+                          <option value="3">EST +1 to EST -1</option>
+                          <option value="4">EST -2 to EST -4</option>
+                          <option value="5">EST -5 to EST -8</option>
+                          <option value="6">EST -9 to EST -12</option>
+    
+                      </select>
+                  </div>
+                  <div class="col-md-4 form-group">
+                    <select class="form-control selectpicker " name="meetingPreference" id="meetingPreference" rows="5" placeholder="Do you prefer Zoom or in-person studying?" required style="margin-top: 5%">
+                        <option selected disabled>Do you prefer Zoom or in-person studying?</option>
+                        <option value="0">In-person</option>
+                        <option value="1">Zoom</option>
+  
+                    </select>
+                </div>
 
                 </div>
-                -->
+                
+
 
                 <!-- <div class="my-3">
     <div class="loading">Loading</div>
@@ -221,11 +507,8 @@
            }
       </script>
     -->
-                <div class="text-center" style="margin-top: 2%"><button onclick="confirmFunction()" type="submit">Submit</button></div>
+                <div class="text-center" style="margin-top: 2%"><button type="submit">Submit</button></div>
             </form>
-
-        
-
       </div>
 
 
@@ -254,9 +537,8 @@
       <div class="copyright">
         &copy; Copyright <strong><span>ORF401</span></strong>. All Rights Reserved
       </div>
-      <div class="credits">
-        
-       <a>ORF401 Spring 2021</a>
+      <div class="copyright">
+           <a href="https://www.instagram.com/psetbuddy/"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
