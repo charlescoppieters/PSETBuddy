@@ -15,13 +15,16 @@ def index(request):
 
 
   
-
+student_count = 9; 
 
 # Saves submitted information into form
 def create(request):
   if request.method == "POST":
     new_buddy = NewBuddyForm(request.POST)
     new_buddy.save()
+
+    #Increment student count for about page 
+    
 
     first_names = []
     last_names = []
@@ -35,9 +38,9 @@ def create(request):
 
     #Find big group of 9 to be optimized into 3 groups of 3 people
     
-    accounts = Person.objects.filter(Major__icontains = major, CourseNumber__icontains = Course_Number, has_group1 = False)[:9]
+    accounts = Person.objects.filter(Major__icontains = major, CourseNumber__icontains = Course_Number, has_group1 = False)[:3]
     #once 9 people have signed up for one class, optimize
-    if len(accounts) == 9:
+    if len(accounts) == 3:
 
       for account in accounts:
         first_names.append(account.first_name)
@@ -45,20 +48,17 @@ def create(request):
         emails.append(account.contact_email)
       
       #Send email to all three group members 
-      email(first_names, last_names, emails, major, Course_Number)
+      emailFunc(first_names, last_names, emails, major, Course_Number)
 
       #Set hasgroup boolean to true
       for account in accounts:
         account.has_group1 = True
         account.save()
 
-    #If group is not immediately found 
-    if len(accounts) != 9:
-        conformation_email(firstname, lastname, major, Course_Number, email)
 
   return redirect("/services.html")
 
-def email(first_names, last_names, emails, major, Course_Number):
+def emailFunc(first_names, last_names, emails, major, Course_Number):
   import smtplib
   gmail_user = "psetbuddy2021@gmail.com" # (You should provide your gmail account name)
   gmail_pwd = "testbuddy2021" # (You should provide your gmail password)
@@ -69,30 +69,11 @@ def email(first_names, last_names, emails, major, Course_Number):
   smtpserver.login(gmail_user, gmail_pwd)
   subject = "PSETBuddy - Your Study Group Has Been Found!"
   to = emails
-  msg = "Welcome to PSETBuddy! \n\n Your group members for " + major + Course_Number + " are: \n\n" + " - "+ first_names[0] + " " + last_names[0] + " (" + emails[0] + ")\n" + " - "+ first_names[1] + " " + last_names[1] + " (" + emails[1] + ")\n" + " - "+ first_names[2] + " " + last_names[2] + " (" + emails[2] + ")\n" + "\nBest of luck studying and be sure to always abide by the Honor Code!\n\n" + " Best, \n\n" + " The PSETBuddy Team"
-  
-  body = 'Subject: {}\n\n{}'.format(subject, msg)
+  msg = "Welcome to PSETBuddy! \n\n Your group members for " + major + Course_Number + " are: \n\n" + " - "+ first_names[0] + " " + last_names[0] + " (" + emails[0] + ")\n" + " - "+ first_names[1] + " " + last_names[1] + " (" + emails[1] + ")\n" + " - "+ first_names[2] + " " + last_names[2] + " (" + emails[2] + ")\n" + "\nBest of luck studying and be sure to always abide by the Honor Code!\n\n" + "Best, \n\n" + " The PSETBuddy Team"
+  body = "Subject: {}\n\n{}".format(subject, msg)
   smtpserver.sendmail(gmail_user, to, body)
   smtpserver.close()
 
-
-
-def conformation_email(firstname, lastname, major, Course_Number, email):
-  import smtplib
-  gmail_user = "psetbuddy2021@gmail.com" # (You should provide your gmail account name)
-  gmail_pwd = "testbuddy2021" # (You should provide your gmail password)
-  smtpserver = smtplib.SMTP("smtp.gmail.com",587)
-  smtpserver.ehlo()
-  smtpserver.starttls()
-  smtpserver.ehlo
-  smtpserver.login(gmail_user, gmail_pwd)
-  subject = "PSETBuddy - Your Information has Been Received"
-  to = emails
-  msg = "Welcome to PSETBuddy! \n\n Your information was reveived and we are working to find your group members for " + major + Course_Number + ". You will receive another email when your group has been found!" + "\nBest of luck studying and be sure to always abide by the Honor Code!\n\n" + " Best, \n\n" + " The PSETBuddy Team"
-  
-  body = 'Subject: {}\n\n{}'.format(subject, msg)
-  smtpserver.sendmail(gmail_user, to, body)
-  smtpserver.close()
     
     
 
