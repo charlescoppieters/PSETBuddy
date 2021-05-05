@@ -18,7 +18,7 @@ class Person(models.Model):
   date = models.DateTimeField(auto_now=True)
 
 class Feedback(models.Model):
-  first_name = models.CharField(max_length=64)
+  first_name = models.CharField(max_length=64, null = True)
   last_name = models.CharField(max_length=64, null = True)
   email = models.CharField(max_length=64, null = True)
   feedback = models.CharField(max_length=256, null = True)
