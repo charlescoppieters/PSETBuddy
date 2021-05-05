@@ -46,6 +46,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a class="active " href="services.html">Find a Buddy</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -61,11 +62,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Our Services</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Our Services</li>
-          </ol>
+          <h2>Find a Buddy</h2>
         </div>
 
       </div>
@@ -452,61 +449,39 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 form-group">
-                        <select class=" form-control selectpicker " name="deadline" id="deadline" rows="5" placeholder="How many days before the deadline do you like to finish your assingment?" required style="margin-top: 5%">
+                        <select class=" form-control selectpicker " name="time_management" id="time_management" rows="5" placeholder="How many days before the deadline do you like to finish your assingment?" required style="margin-top: 5%">
                             <option selected disabled>How do you manage your time?</option>
-                            <option value="0">Start 1+ week(s) before the due date</option>
-                            <option value="1">Start 3-5 days before the due date</option>
-                            <option value="2">Start 2-3 days before the due date</option>
-                            <option value="3">Start 0-1 days before the due date</option>
-    
+                            <option value=0>Start 1+ week(s) before the due date</option>
+                            <option value=1>Start 3-5 days before the due date</option>
+                            <option value=3>Start 2-3 days before the due date</option>
+                            <option value=4>Start 0-1 days before the due date</option>
+                            <option value=2>No preference</option>
                         </select>
                     </div>
     
                     <div class="col-md-4 form-group">
-                      <select class="form-control selectpicker " name="timezone" id="timezone" rows="5" placeholder="What is your time zone" required style="margin-top: 5%">
+                      <select class="form-control selectpicker " name="time_zone" id="time_zone" rows="5" placeholder="What is your time zone" required style="margin-top: 5%">
                           <option selected disabled>Time Zone (based off of Princeton's EST)</option>
-                          <option value="0">EST +9 to EST +12</option>
-                          <option value="1">EST +5 to EST +8</option>
-                          <option value="2">EST +2 to EST +4</option>
-                          <option value="3">EST +1 to EST -1</option>
-                          <option value="4">EST -2 to EST -4</option>
-                          <option value="5">EST -5 to EST -8</option>
-                          <option value="6">EST -9 to EST -12</option>
-    
+                          <option value=0>EST +9 to EST +12</option>
+                          <option value=1>EST +5 to EST +8</option>
+                          <option value=2>EST +2 to EST +4</option>
+                          <option value=3>EST +1 to EST -1</option>
+                          <option value=4>EST -2 to EST -4</option>
+                          <option value=5>EST -5 to EST -8</option>
+                          <option value=6>EST -9 to EST -12</option>
                       </select>
                   </div>
                   <div class="col-md-4 form-group">
-                    <select class="form-control selectpicker " name="meetingPreference" id="meetingPreference" rows="5" placeholder="Do you prefer Zoom or in-person studying?" required style="margin-top: 5%">
+                    <select class="form-control selectpicker " name="zoom_preference" id="zoom_preference" rows="5" placeholder="Do you prefer Zoom or in-person studying?" required style="margin-top: 5%">
                         <option selected disabled>Do you prefer Zoom or in-person studying?</option>
-                        <option value="0">In-person</option>
-                        <option value="1">Zoom</option>
-  
+                        <option value=0>In-person</option>
+                        <option value=6>Zoom</option>
+                        <option value=3>No preference</option>
                     </select>
                 </div>
 
                 </div>
                 
-
-
-                <!-- <div class="my-3">
-    <div class="loading">Loading</div>
-    <div class="error-message"></div>
-    <div class="sent-message">Your information has been received </div> -->
-                <!--<div class="slidecontainer">
-           <input type="range" min="1" max="6" value="3" class="slider" id="myRange">
-           <p>Value: <span id="demo"></span></p>
-      </div>
-
-      <script>
-          var slider = document.getElementById("myRange");
-          var output = document.getElementById("demo");
-          output.innerHTML = slider.value;
-
-          slider.oninput = function () {
-            output.innerHTML = this.value;
-           }
-      </script>
-    -->
                 <div class="text-center" style="margin-top: 2%"><button type="submit">Submit</button></div>
             </form>
       </div>
@@ -520,10 +495,12 @@
     <p id="demo"></p>
 
     <script>
+        userCounter = 0
       function confirmFunction() {
-        alert("Your information has been received! \n\nYou will receive an email when your group is finalized with the contact information of every group memeber.\n\nThank you for using PSETBuddy!");
+          alert("Your information has been received! \n\nYou will receive an email when your group is finalized with the contact information of every group memeber.\n\nThank you for using PSETBuddy!");
+          userCounter = userCounter + 1
       }
-</script>
+    </script>
     
 
 

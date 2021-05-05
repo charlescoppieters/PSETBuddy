@@ -8,6 +8,13 @@ body {
   color: #444;
 }
 
+.centerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
 a {
   color: #4fa6d5;
   text-decoration: none;

@@ -1,5 +1,7 @@
 from django import forms
 from .models import Person
+from .models import Feedback
+
 
 
 class BuddyForm(forms.Form):
@@ -9,4 +11,9 @@ class BuddyForm(forms.Form):
 class NewBuddyForm(forms.ModelForm):
   class Meta:
     model = Person
-    exclude = [Person.has_group1]
+    exclude = [Person.has_group1, Person.date]
+
+class NewFeedbackForm(forms.ModelForm):
+    class Meta:
+      model = Feedback
+      exclude = []
