@@ -14,11 +14,11 @@ class Person(models.Model):
   has_group1 = models.BooleanField(default = False)
   time_management = models.IntegerField(null=True)
   time_zone = models.IntegerField(null=True)
-  zoom_preference = models.IntegerField(null=True)
+  #zoom_preference = models.IntegerField(null=True)
   date = models.DateTimeField(auto_now=True)
 
 class Feedback(models.Model):
-  first_name = models.CharField(max_length=64, null = True)
-  last_name = models.CharField(max_length=64, null = True)
-  email = models.CharField(max_length=64, null = True)
+  #first_name = models.CharField(max_length=64, null = True)
+  #last_name = models.CharField(max_length=64, null = True)
+  #email = models.CharField(max_length=64, null = True)
   feedback = models.CharField(max_length=256, null = True)
