@@ -192,7 +192,7 @@ def dissapointment_email(first_name, email):
   smtpserver.sendmail(gmail_user, to, body)
   smtpserver.close()
 
-def feedback_email(request):
+def feedback(request):
   if request.method == "POST":
     new_feedback = NewFeedbackForm(request.POST)
     new_feedback.save()
