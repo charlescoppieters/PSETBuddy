@@ -134,4 +134,4 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'www.psetbuddy.com']
 
-
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
