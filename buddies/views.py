@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from email.message import EmailMessage
 from .models import Person
 from .models import Feedback
-#from django.utils import timezone
+from django.utils import timezone
 
 # relative import of forms
 from .forms import BuddyForm
@@ -97,13 +97,13 @@ def create(request):
         account.save()
       
     #Check for people who have not been assinged to groups and send them dissapointment email
-    # lone_wolves = Person.objects.filter(has_group1 = False)
+    lone_wolves = Person.objects.filter(has_group1 = False)
       
-    # for wolve in lone_wolves:
-    #   if timezone.now() - timedelta(days = 21) > wolve.date:
-    #     dissapointment_email(wolve.first_name, wolve.contact_email)
-    #     wolve.has_group1 = True 
-    #     wolve.save()
+    for wolve in lone_wolves:
+      if timezone.now() - timedelta(days = 21) > wolve.date:
+        dissapointment_email(wolve.first_name, wolve.contact_email)
+        wolve.has_group1 = True 
+        wolve.save()
 
 
   return redirect("/services.html")
